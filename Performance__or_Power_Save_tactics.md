@@ -21,7 +21,7 @@ sudo echo "echo \"vm.dirty_writeback_centisecs = 3000\" >> /etc/sysctl.d/99-sysc
 sudo echo "echo \"vm.dirty_writeback_centisecs = 1500\" >> /etc/sysctl.d/99-sysctl.conf" | sudo bash;sudo echo "echo \"vm.dirty_ratio = 8\" >> /etc/sysctl.d/99-sysctl.conf" | sudo bash;sudo echo "echo \"vm.dirty_background_ratio = 4\" >> /etc/sysctl.d/99-sysctl.conf" | sudo bash;sudo echo "echo \"vm.swappiness = 5\" >> /etc/sysctl.d/99-sysctl.conf" | sudo bash;sudo echo "echo \"vm.vfs_cache_pressure = 50\" >> /etc/sysctl.d/99-sysctl.conf" | sudo bash
 
 
-or add it manually
+# or add it manually
 
 sudo nano /etc/sysctl.d/99-sysctl.conf
 
@@ -119,75 +119,75 @@ and then use konsole to search for the module name
 # Blacklist unneeded modules 
 # I use this which is a modified version of Kubuntu blacklist and the command needs a little fixing but just hit ctrl c if you get a blicking cursor and the file will still be there. " I will try and fix this "
 sudo nano /etc/modprobe.d/blacklist.conf
-# This file lists those modules which we don't want to be loaded by  alias expansion, usually so some other driver will be loaded for the device instead.
-# evbug is a debug tool that should be loaded explicitly
+- This file lists those modules which we don't want to be loaded by  alias expansion, usually so some other driver will be loaded for the device instead.
+- evbug is a debug tool that should be loaded explicitly
 blacklist evbug
 
-# these drivers are very simple, the HID drivers are usually preferred
+- these drivers are very simple, the HID drivers are usually preferred
 blacklist usbmouse
 blacklist usbkbd
 
-# replaced by e100
+- replaced by e100
 blacklist eepro100
 
-# replaced by tulip
+- replaced by tulip
 blacklist de4x5
 
-# causes no end of confusion by creating unexpected network interfaces
+- causes no end of confusion by creating unexpected network interfaces
 blacklist eth1394
 
-# snd_intel8x0m can interfere with snd_intel8x0, doesn't seem to support much
-# hardware on its own (Ubuntu bug #2011, #6810)
+- snd_intel8x0m can interfere with snd_intel8x0, doesn't seem to support much
+- hardware on its own (Ubuntu bug -2011, -6810)
 blacklist snd_intel8x0m
 
-# Conflicts with dvb driver (which is better for handling this device)
+- Conflicts with dvb driver (which is better for handling this device)
 blacklist snd_aw2
 
-# replaced by p54pci
+- replaced by p54pci
 blacklist prism54
 
-# replaced by b43 and ssb.
+- replaced by b43 and ssb.
 blacklist bcm43xx
 
-# most apps now use garmin usb driver directly (Ubuntu: #114565)
+- most apps now use garmin usb driver directly (Ubuntu: -114565)
 blacklist garmin_gps
 
-# replaced by asus-laptop (Ubuntu: #184721)
+- replaced by asus-laptop (Ubuntu: -184721)
 blacklist asus_acpi
 
-# low-quality, just noise when being used for sound playback, causes
-# hangs at desktop session start (Ubuntu: #246969)
+- low-quality, just noise when being used for sound playback, causes
+- hangs at desktop session start (Ubuntu: -246969)
 blacklist snd_pcsp
 
-# ugly and loud noise, getting on everyone's nerves; this should be done by a
-# nice pulseaudio bing (Ubuntu: #77010)
+- ugly and loud noise, getting on everyone's nerves; this should be done by a
+- nice pulseaudio bing (Ubuntu: -77010)
 blacklist pcspkr
 
-# EDAC driver for amd76x clashes with the agp driver preventing the aperture
-# from being initialised (Ubuntu: #297750). Blacklist so that the driver
-# continues to build and is installable for the few cases where its
-# really needed.
+- EDAC driver for amd76x clashes with the agp driver preventing the aperture
+- from being initialised (Ubuntu: -297750). Blacklist so that the driver
+- continues to build and is installable for the few cases where its
+- really needed.
 blacklist amd76x_edac
 
-# Blacklist watchdog modules for faster /boot/shutdown
+- Blacklist watchdog modules for faster /boot/shutdown
 blacklist iTCO_wdt
 blacklist iTCO_vendor_support
 
-# Disable webcam
+- Disable webcam
 blacklist uvcvideo
 
-# Disable Bluetooth
+- Disable Bluetooth
 blacklist bluetooth
 blacklist hci
 blacklist hci_uart
 blacklist hci_vhci
 
-# Disable joystick driver
+- Disable joystick driver
 blacklist joydev
 
-# Disable the loading of the old radeon modules
+- Disable the loading of the old radeon modules
 blacklist radeon
 
 - Some more reading
-# Linux performance
+- Linux performance
 http://www.brendangregg.com/linuxperf.html
