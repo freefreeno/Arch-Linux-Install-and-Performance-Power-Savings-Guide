@@ -1,0 +1,2 @@
+# USB Autosuspend.
+ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="auto"
